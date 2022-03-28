@@ -37,6 +37,12 @@ app.message(':wave:', async ({ message, say }) => {
   });
 });
 
+app.event('reaction_added', async ({ event, say }) => {
+  await say({
+    text: `Thanks for the :${event.reaction}:`,
+    thread_ts: event.item.ts
+  })
+});
 
 app.action('button_click', async ({ body, ack, say }) => {
   // Acknowledge the action
