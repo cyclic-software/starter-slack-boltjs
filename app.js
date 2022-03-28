@@ -41,10 +41,10 @@ app.message(':wave:', async ({ message, say }) => {
 app.action('button_click', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
-  console.log(JSON.stringify(body,null,2))
+  // console.log(JSON.stringify(body,null,2))
   await say({
     text: `<@${body.user.id}> you clicked the button. Well done.`,
-    thread_ts: body.ts
+    thread_ts: body.message.ts
   });
 });
 
