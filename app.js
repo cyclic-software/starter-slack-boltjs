@@ -1,12 +1,16 @@
+const express = require('express')
 const { App, ExpressReceiver } = require('@slack/bolt');
 
 const receiver = new ExpressReceiver({ signingSecret: process.env.SLACK_SIGNING_SECRET });
+
+receiver.router.use(express.static('public'))
 
 const app = new App({
   receiver,
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
+
 
 app.message(':wave:', async ({ message, say }) => {
   await say(`Hello, <@${message.user}>`);
