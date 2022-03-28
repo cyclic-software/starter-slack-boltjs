@@ -2,14 +2,16 @@
   "name": "starter-slack-boltjs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "env-cmd node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Kam Lasater <kam.lasater@cyclic.sh>",
   "license": "ISC",
   "dependencies": {
-    "@slack/bolt": "^3.10.0"
+    "@slack/bolt": "^3.10.0",
+    "env-cmd": "^10.1.0"
   }
 }
