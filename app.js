@@ -32,7 +32,8 @@ app.message(':wave:', async ({ message, say }) => {
         }
       }
     ],
-    text: `Hey there <@${message.user}>!`
+    text: `Hey there <@${message.user}>!`,
+    thread_ts: message.ts
   });
 });
 
@@ -40,7 +41,10 @@ app.message(':wave:', async ({ message, say }) => {
 app.action('button_click', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
-  await say(`<@${body.user.id}> you clicked the button. Well done.`);
+  await say({
+    text: `<@${body.user.id}> you clicked the button. Well done.`,
+    thread_ts: body.ts
+  });
 });
 
 (async () => {
