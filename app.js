@@ -32,7 +32,7 @@ app.message(':wave:', async ({ message, say }) => {
         }
       }
     ],
-    text: `Hey there <@${message.user}>!`,
+    text: `Hey there there <@${message.user}>!`,
     thread_ts: message.ts
   });
 });
